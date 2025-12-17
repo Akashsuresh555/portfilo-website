@@ -7,7 +7,6 @@ import location from '../assets/location.png'
 import resume from '../assets/resume.png'
 import resumePDF from '../assets/Akash-suresh e.k resume.pdf' // Import the PDF
 
-
 export default function Contact() {
   const contactInfo = [
     {
@@ -59,7 +58,7 @@ export default function Contact() {
       icon: resume,
       title: "Resume",
       value: "Download CV",
-      link: "Akash-suresh e.k resume.pdf",
+      link: resumePDF, // Use the imported PDF variable
       description: "Updated portfolio",
       color: "#f59e0b",
       action: "Download"
@@ -103,7 +102,7 @@ export default function Contact() {
                   <div className="contact-details">
                     <h3>{item.title}</h3>
                     <p className="contact-value">{item.value}</p>
-                    <p className="contact-description">{item.description}</p>
+                    <p className="contact-descripcription">{item.description}</p>
                   </div>
                   <div className="contact-status">
                     <span className="status-indicator"></span>
@@ -113,12 +112,13 @@ export default function Contact() {
               ) : (
                 <motion.a
                   href={item.link}
-                  target={item.link.startsWith('http') ? "_blank" : "_self"}
+                  target={item.title === "Resume" ? "_blank" : (item.link.startsWith('http') ? "_blank" : "_self")} // Open resume in new tab
                   rel={item.link.startsWith('http') ? "noopener noreferrer" : ""}
                   className="contact-card"
                   style={{ '--accent-color': item.color }}
                   whileHover={{ y: -5 }}
                   whileTap={{ scale: 0.98 }}
+                  download={item.title === "Resume" ? "Akash-Suresh-Resume.pdf" : undefined} // Add download attribute for resume
                 >
                   <div className="contact-icon-container">
                     <img src={item.icon} alt={item.title} className="contact-icon" />
@@ -190,8 +190,8 @@ export default function Contact() {
                 GitHub
               </a>
               <a 
-                href="/Akash-suresh e.k resume.pdf" 
-                download
+                href={resumePDF} // Use imported PDF variable
+                download="Akash-Suresh-Resume.pdf" // Specify download filename
                 className="footer-link"
               >
                 Resume
