@@ -5,6 +5,8 @@ import github from '../assets/github.png'
 import phone from '../assets/phone.png'
 import location from '../assets/location.png'
 import resume from '../assets/resume.png'
+import resumePDF from '../assets/Akash-suresh e.k resume.pdf' // Import the PDF
+
 
 export default function Contact() {
   const contactInfo = [
@@ -57,7 +59,7 @@ export default function Contact() {
       icon: resume,
       title: "Resume",
       value: "Download CV",
-      link: "/Akash-suresh e.k resume.pdf",
+      link: "Akash-suresh e.k resume.pdf",
       description: "Updated portfolio",
       color: "#f59e0b",
       action: "Download"
